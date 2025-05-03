@@ -2,7 +2,7 @@ import { ConflictException, Injectable, NotFoundException } from "@nestjs/common
 import { InjectRepository } from "@nestjs/typeorm";
 import { Badges } from "src/entity/badges.entity";
 import { User } from "src/entity/user.entity";
-import { BadgesDto } from "src/models/dto/badges.dto";
+import { BadgesDto } from "src/modules/badges/badges.dto";
 import { DataSource, Repository } from "typeorm";
 import { UserService } from "../user/user.service";
 

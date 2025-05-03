@@ -1,10 +1,10 @@
-import { Body, Controller, HttpCode, HttpStatus, Post, UseFilters } from "@nestjs/common";
+import { Body, Controller, HttpCode, HttpStatus, Param, Patch, Post, UseFilters } from "@nestjs/common";
 import { Public } from "src/config/publicRoutes.decorator";
 import { User } from "src/entity/user.entity";
-import { UserDto } from "src/models/dto/user.dto";
+import { UpdateUserDto, UserDto } from "src/modules/user/user.dto";
 import { UserService } from "src/modules/user/user.service";
 
-@Controller('users')
+@Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) { }
 
@@ -12,6 +12,15 @@ export class UserController {
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
   async register(@Body() body: UserDto): Promise<User> {
-    return await this.userService.register(body, body.password);
+    return await this.userService.create(body, body.password);
   }
+
+  @Patch(':id')
+  async updateUser(
+    @Param('id') userId: string,
+    @Body() updateUserDto: UpdateUserDto
+  ): Promise<User> {
+    return await this.userService.update(userId, updateUserDto);
+  }
+
 }

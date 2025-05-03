@@ -1,6 +1,6 @@
 import { Body, Controller, Param, Patch, Post, Req } from "@nestjs/common";
 import { Badges } from "src/entity/badges.entity";
-import { BadgesDto } from "src/models/dto/badges.dto";
+import { BadgesDto } from "src/modules/badges/badges.dto";
 import { BadgeService } from "./badges.service";
 import { Roles } from "src/config/roles.decoraator";
 import { Role } from "src/models/enums/role.enum";
