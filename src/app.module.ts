@@ -7,7 +7,6 @@ import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthGuard } from './guard/auth.guard';
 import { APP_GUARD } from '@nestjs/core';
-import { BadgeModule } from './modules/badges/badges.module';
 import { RolesGuard } from './guard/roles.guard';
 import { ConfigModule } from '@nestjs/config';
 
@@ -21,14 +20,13 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [__dirname + "/**/**.entity{.ts,.js}"],
+      entities: [__dirname + '/**/**.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
     }),
     PassportModule,
     UserModule,
     AuthModule,
-    BadgeModule
   ],
   providers: [
     JwtStrategy,
@@ -40,7 +38,7 @@ import { ConfigModule } from '@nestjs/config';
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
-    }
+    },
   ],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, OneToMany } from 'typeorm';
-import { Badges } from './badges.entity';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -23,7 +22,4 @@ export class User {
 
   @Column({ type: 'simple-json', nullable: true })
   roles: string[];
-
-  @OneToMany(() => Badges, (badges) => badges.user)
-  badges: Badges[];
 }
