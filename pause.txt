@@ -1,3 +1,0 @@
-parei na config do husky com pre-commit, para acionar o eslint no momento em que for subir um commit, caso tenha algum erro o commit deve ser cancelado
-
-Obs: foi feito a questão do pre-commit,  proximo passo é entender novamente o funcinamento dos bages com relação ao user
